@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Details</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+
+<body>
+
+<div class="container-fluid">
+
+  <a href="/" class="back-button">← Back</a>
+
+  <!-- LOADING -->
+  <div id="loading" class="loading">
+    <div class="spinner"></div>
+    <p>Loading book...</p>
+  </div>
+
+  <div id="errorMessage" class="error-message" style="display:none;"></div>
+
+  <!-- BOOK DETAILS -->
+  <div id="bookDetailsContainer" style="display:none;">
+
+    <!-- ✅ FIXED: no movie classes anymore -->
+    <div class="book-details-container">
+
+      <div class="book-header">
+
+        <div class="book-poster-section">
+          <div id="bookCover"></div>
+        </div>
+
+        <div class="book-content">
+
+          <h1 class="book-title-detail" id="bookTitle"></h1>
+
+          <div class="book-meta">
+
+            <div class="meta-item">
+              <div class="meta-label">Author</div>
+              <div class="meta-value" id="bookAuthor">N/A</div>
+            </div>
+
+            <div class="meta-item">
+              <div class="meta-label">Year</div>
+              <div class="meta-value" id="bookYear">N/A</div>
+            </div>
+
+            <div class="meta-item">
+              <div class="meta-label">Publisher</div>
+              <div class="meta-value" id="bookPublisher">N/A</div>
+            </div>
+
+            <div class="meta-item">
+              <div class="meta-label">Language</div>
+              <div class="meta-value" id="bookLanguage">N/A</div>
+            </div>
+
+            <div class="meta-item">
+              <div class="meta-label">Pages</div>
+              <div class="meta-value" id="bookPages">N/A</div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ⭐ RELATED MOVIES -->
+    <div id="moviesSection" style="margin-top:40px;">
+
+      <h2 class="section-title">Related Movies</h2>
+
+      <div id="moviesLoading" class="loading">
+        <div class="spinner"></div>
+      </div>
+
+      <div id="relatedMoviesGrid" class="movies-grid"></div>
+
+      <div id="noMovies" style="display:none;">
+        No related movies found
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script type="module" src="assets/scripts/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie and Book Database</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+  <div class="container-fluid">
+
+    <div class="header">
+      <h1 class="title">ACTORS AND AUTHORS</h1>
+
+      <div class="controls-row">
+
+        <div class="mode-selector">
+          <input type="radio" id="movies" name="mode" value="movies" checked>
+          <label for="movies">Movies</label>
+
+          <input type="radio" id="books" name="mode" value="books">
+          <label for="books">Books</label>
+        </div>
+
+        <div class="search-container">
+          <input type="text" id="searchInput" placeholder="Search for a movie or book..." autocomplete="off">
+          <button id="searchBtn">Search</button>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+    <div id="loading" class="loading" style="display: none;">
+      <div class="spinner"></div>
+      <p>Loading results...</p>
+    </div>
+
+    <div class="movies-grid" id="moviesGrid">
+        <div id="genreChart" class="chart-item"></div>
+    </div>
+    
+    <!-- BOOKS GRID -->
+    <div id="booksGrid" class="movies-grid"></div>
+
+    <div id="noResults" class="no-results" style="display: none;">
+      No results found. Try searching for something else.
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="assets/scripts/app.js"></script>
+</body>
+
+</html>

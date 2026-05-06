@@ -1,0 +1,817 @@
+/* General Styles */
+body {
+    background-color: #1a1a1a;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+}
+
+/* Header & Title */
+.header {
+    margin-bottom: 40px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffc107;
+}
+
+/* Search Container */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    gap: 10px;
+}
+
+.search-container input {
+    width: 300px;
+    padding: 12px 15px;
+    border-radius: 25px;
+    border: 2px solid #ffc107;
+    background-color: #2a2a2a;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.search-container input::placeholder {
+    color: #999;
+}
+
+.search-container input:focus {
+    outline: none;
+    background-color: #333;
+    border-color: #ffed4e;
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+}
+
+.search-container button {
+    padding: 12px 30px;
+    border-radius: 25px;
+    border: none;
+    background-color: #ffc107;
+    color: #1a1a1a;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-container button:hover {
+    background-color: #ffed4e;
+    transform: scale(1.05);
+}
+
+/* Movies Grid */
+#relatedMoviesGrid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Movie Card */
+.movie-card {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid transparent;
+    padding: auto;
+}
+
+.chart-loading {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* reuse your spinner or define it */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #333;
+  border-top: 4px solid #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.movie-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.movie-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(255, 193, 7, 0.3);
+    border-color: #ffc107;
+}
+
+.movie-poster {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    background-color: #1a1a1a;
+}
+
+.movie-info {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-title {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #ffc107;
+    min-height: 2rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.movie-year {
+    font-size: 0.85rem;
+    color: #999;
+    margin-bottom: 10px;
+}
+
+.movie-rating {
+    font-size: 0.9rem;
+    color: #ffc107;
+    margin-top: auto;
+}
+
+/* No Results */
+.no-results {
+    text-align: center;
+    color: #999;
+    padding: 40px;
+    font-size: 1.2rem;
+}
+
+/* Loading Spinner */
+.loading {
+    text-align: center;
+    padding: 40px;
+    font-size: 1.2rem;
+    color: #ffc107;
+}
+
+.spinner {
+    border: 4px solid #2a2a2a;
+    border-top: 4px solid #ffc107;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Error Message */
+.error-message {
+    background-color: #c82333;
+    color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .movies-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .movies-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .movies-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .search-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-container input {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .search-container button {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    .movies-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .search-container input {
+        width: 100%;
+    }
+
+    .search-container button {
+        width: 100%;
+    }
+}
+
+/* Movie Details Page Styles */
+.movie-details-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    background-color: #2a2a2a;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 2px solid #ffc107;
+    text-align: center;
+}
+
+.movie-header {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 40px;
+    padding: 40px;
+    justify-items: center;
+    align-items: center;
+}
+
+.movie-poster-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.movie-poster-large {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #ffc107;
+}
+
+.movie-content { display: flex; flex-direction: column; justify-content: center; align-items: center; }
+
+.movie-title-detail {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffc107;
+    margin-bottom: 15px;
+}
+
+.movie-meta { display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap; justify-content: center; }
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.meta-label {
+    color: #999;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.meta-value {
+    color: #ffc107;
+    font-size: 1.1rem;
+    margin-top: 5px;
+}
+
+.movie-body {
+    padding: 40px;
+    background-color: #1a1a1a;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    color: #ffc107;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.section-title:first-child {
+    margin-top: 0;
+}
+
+.overview-text {
+    color: #ddd;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.genres {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.genre-tag {
+    background-color: #ffc107;
+    color: #1a1a1a;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #ffc107;
+    color: #1a1a1a;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #ffed4e;
+    transform: scale(1.05);
+    text-decoration: none;
+}
+
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .movie-header {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .movie-title-detail {
+        font-size: 2rem;
+    }
+
+    .two-column {
+        grid-template-columns: 1fr;
+    }
+
+    .movie-poster-large {
+        height: 350px;
+    }
+}
+/* Books Grid */
+#relatedBooksGrid {
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.book-card {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid #444;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.book-card:hover {
+    transform: translateY(-8px);
+    border-color: #ffc107;
+    box-shadow: 0 8px 20px rgba(255, 193, 7, 0.2);
+}
+
+.book-image-wrapper {
+    width: 100%;
+    height: 200px;
+    background-color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.book-cover {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.no-cover {
+    color: #666;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.book-info {
+    padding: 12px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.book-title {
+    font-weight: bold;
+    color: #ffc107;
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.book-author {
+    color: #999;
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.book-year {
+    color: #777;
+    font-size: 0.8rem;
+    margin-top: auto;
+}
+.chart-item {
+  grid-column: 3 / span 3; /* occupies columns 3–5 */
+  grid-row: span 2;        /* makes it taller than cards */
+  background: #111;
+  border-radius: 12px;
+  padding: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .chart-item {
+    grid-column: 1 / -1;
+    order: -1;
+  }
+}
+/* =========================
+   BOOK DETAILS (CLEAN SYSTEM)
+========================= */
+
+.book-details-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    background-color: #2a2a2a;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 2px solid #ffc107;
+    text-align: center;
+}
+
+/* HEADER */
+.book-header {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 40px;
+    padding: 40px;
+    align-items: center;
+    justify-items: center;
+}
+
+/* COVER */
+.book-cover-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book-cover-large {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #ffc107;
+    background-color: #1a1a1a;
+}
+
+/* CONTENT */
+.book-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book-title-detail {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffc107;
+    margin-bottom: 15px;
+}
+
+/* META */
+.book-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.book-meta-item {
+    display: flex;
+    flex-direction: column;
+    min-width: 120px;
+}
+
+.book-meta-label {
+    color: #999;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.book-meta-value {
+    color: #ffc107;
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+/* BODY */
+.book-body {
+    padding: 40px;
+    background-color: #1a1a1a;
+}
+
+.book-section-title {
+    font-size: 1.5rem;
+    color: #ffc107;
+    margin-bottom: 15px;
+}
+
+.book-overview {
+    color: #ddd;
+    line-height: 1.6;
+}
+
+/* BACK BUTTON */
+.back-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #ffc107;
+    color: #1a1a1a;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    transition: 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #ffed4e;
+    transform: scale(1.05);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .book-header {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .book-title-detail {
+        font-size: 2rem;
+    }
+
+    .book-cover-large {
+        height: 350px;
+    }
+}
+
+@media (max-width: 1400px) {
+    #booksGrid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1000px) {
+    #booksGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    #booksGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    #booksGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.controls-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+/* MODE TOGGLE (left side pill) */
+.mode-selector {
+    display: flex;
+    align-items: center;
+    background-color: #2a2a2a;
+    border: 2px solid #ffc107;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+/* hide radios */
+.mode-selector input {
+    display: none;
+}
+
+/* labels act like buttons */
+.mode-selector label {
+    padding: 10px 18px;
+    cursor: pointer;
+    color: #999;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+/* active */
+.mode-selector input:checked + label {
+    background-color: #ffc107;
+    color: #1a1a1a;
+}
+
+/* SEARCH INLINE FIX */
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0; /* IMPORTANT: remove default spacing */
+}
+
+.search-container input {
+    width: 280px;
+}
+
+/* mobile fix */
+@media (max-width: 768px) {
+    .search-container input {
+        width: 200px;
+    }
+}
+
+.controls-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* radio buttons styled like search */
+.mode-selector {
+    display: flex;
+    gap: 10px;
+    background-color: #2a2a2a;
+    padding: 10px 15px;
+    border-radius: 25px;
+    border: 2px solid #ffc107;
+}
+
+.mode-selector input {
+    display: none;
+}
+
+.mode-selector label {
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    color: #999;
+    transition: 0.3s;
+}
+
+.mode-selector input:checked + label {
+    background-color: #ffc107;
+    color: #1a1a1a;
+    font-weight: bold;
+}
+
+/* search same style alignment fix */
+.search-container {
+    margin: 0;
+}
+
+/* book fields slide animation */
+.book-fields {
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition: all 0.4s ease;
+    display: flex;
+}
+
+.book-fields {
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(-5px);
+    pointer-events: none;
+    transition: 0.3s ease;
+    height: 0;
+    overflow: hidden;
+}
+
+.book-fields.active {
+    max-width: 250px;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    height: auto;
+}
+
+.text-cover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+}
+
