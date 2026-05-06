@@ -19,6 +19,12 @@ body {
     color: #ffc107;
 }
 
+.container-fluid {
+    max-width: 1400px;
+    margin: 0 auto;  
+    padding: 0 20px;     
+}
+
 /* Search Container */
 .search-container {
     display: flex;
@@ -515,7 +521,7 @@ body {
   border-radius: 8px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1168px) {
   .chart-item {
     grid-column: 1 / -1;
     order: -1;
